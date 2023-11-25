@@ -1,0 +1,213 @@
+%SIGNAL
+PIN  14 =  br_w 
+PIN  37 =  ck6 
+PIN  13 =  dbr_w 
+PIN  40 =  dck1 
+PIN 613 =  ffa 
+PIN 629 =  ffb 
+PIN  23 =  ld0 
+PIN  22 =  ld1 
+PIN  28 =  ld2 
+PIN  34 =  ld3 
+PIN  42 =  ld4 
+PIN  33 =  ld5 
+PIN  31 =  ld6 
+PIN  25 =  ld7 
+PIN  35 =  n_ck1 
+PIN  39 =  n_mrq 
+PIN  15 =  n_rd 
+PIN  10 =  sd0 
+PIN  11 =  sd1 
+PIN   5 =  sd2 
+PIN  44 =  sd3 
+PIN  43 =  sd4 
+PIN   3 =  sd5 
+PIN   2 =  sd6 
+PIN   8 =  sd7 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+br_w =>
+    ffa
+  # ffb
+  # n_ck1
+  # !n_rd
+
+dbr_w =>
+    dck1 & n_rd
+  # ffa
+  # ffb
+  # n_ck1
+
+ffa.d  =>
+    n_mrq
+
+ffa.ap  =>
+    n_mrq
+
+ffa.ck  =>
+    !n_ck1
+
+ffb.d  =>
+    ffa
+
+ffb.ap  =>
+    n_mrq
+
+ffb.ar  =>
+    n_ck1
+
+ffb.ck  =>
+    !ck6
+
+ld0.l  =>
+    sd0.io 
+
+ld0.le  =>
+    !ffa & !ffb & !n_ck1
+
+ld0.oe  =>
+    !n_mrq & !n_rd
+
+ld1.l  =>
+    sd1.io 
+
+ld1.le  =>
+    !ffa & !ffb & !n_ck1
+
+ld1.oe  =>
+    !n_mrq & !n_rd
+
+ld2.l  =>
+    sd2.io 
+
+ld2.le  =>
+    !ffa & !ffb & !n_ck1
+
+ld2.oe  =>
+    !n_mrq & !n_rd
+
+ld3.l  =>
+    sd3.io 
+
+ld3.le  =>
+    !ffa & !ffb & !n_ck1
+
+ld3.oe  =>
+    !n_mrq & !n_rd
+
+ld4.l  =>
+    sd4.io 
+
+ld4.le  =>
+    !ffa & !ffb & !n_ck1
+
+ld4.oe  =>
+    !n_mrq & !n_rd
+
+ld5.l  =>
+    sd5.io 
+
+ld5.le  =>
+    !ffa & !ffb & !n_ck1
+
+ld5.oe  =>
+    !n_mrq & !n_rd
+
+ld6.l  =>
+    sd6.io 
+
+ld6.le  =>
+    !ffa & !ffb & !n_ck1
+
+ld6.oe  =>
+    !n_mrq & !n_rd
+
+ld7.l  =>
+    sd7.io 
+
+ld7.le  =>
+    !ffa & !ffb & !n_ck1
+
+ld7.oe  =>
+    !n_mrq & !n_rd
+
+le2cpu =>
+    !ffa & !ffb & !n_ck1
+
+sd0.l  =>
+    ld0.io 
+
+sd0.le  =>
+    1 
+
+sd0.oe  =>
+    !br_w
+
+sd1.l  =>
+    ld1.io 
+
+sd1.le  =>
+    1 
+
+sd1.oe  =>
+    !br_w
+
+sd2.l  =>
+    ld2.io 
+
+sd2.le  =>
+    1 
+
+sd2.oe  =>
+    !br_w
+
+sd3.l  =>
+    ld3.io 
+
+sd3.le  =>
+    1 
+
+sd3.oe  =>
+    !br_w
+
+sd4.l  =>
+    ld4.io 
+
+sd4.le  =>
+    1 
+
+sd4.oe  =>
+    !br_w
+
+sd5.l  =>
+    ld5.io 
+
+sd5.le  =>
+    1 
+
+sd5.oe  =>
+    !br_w
+
+sd6.l  =>
+    ld6.io 
+
+sd6.le  =>
+    1 
+
+sd6.oe  =>
+    !br_w
+
+sd7.l  =>
+    ld7.io 
+
+sd7.le  =>
+    1 
+
+sd7.oe  =>
+    !br_w
+
+%END

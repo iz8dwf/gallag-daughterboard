@@ -1,0 +1,128 @@
+Name     bus-xcvr ;
+PartNo   00 ;
+Date     12/06/2021 ;
+Revision 03 ;
+Designer Engineer ;
+Company  IZ8DWF ;
+Assembly None ;
+Location  ;
+Device   f1502isptqfp44 ;
+
+PROPERTY ATMEL {pin_keep OFF} ; /* Disables pin-keeper circuits */
+
+
+/* *************** INPUT PINS *********************/
+PIN   15  = n_rd       ; /* cpu Read active low  */ 
+PIN   35  = n_ck1     ; /* 1.5 MHz clock phase  */ 
+PIN   37  = ck6     ; /* 6 MHz clock phase  */ 
+PIN   39  = n_mrq     ; /* shared bus access request active low  */ 
+PIN   40  = dck1     ; /* 1.5 MHz clock phase  */ 
+
+/* *************** OUTPUT PINS *********************/
+PIN   13  = dbr_w    ; /*  shared data bus access signal   */ 
+PIN   14  = br_w    ; /*  shared data bus access signal   */ 
+
+/* ************** I/O data bus CPU side **********/
+PIN   23 =  ld0   ; /*  z80 local data bus    */ 
+PIN   22 =  ld1   ; /*     z80 local data bus    */ 
+PIN   28 =  ld2   ; /*     z80 local data bus    */ 
+PIN   34 =  ld3   ; /*     z80 local data bus    */ 
+PIN   42 =  ld4   ; /*     z80 local data bus    */ 
+PIN   33 =  ld5   ; /*     z80 local data bus    */ 
+PIN   31 =  ld6   ; /*     z80 local data bus    */ 
+PIN   25 =  ld7   ; /*     z80 local data bus    */ 
+
+/* ************** I/O data bus shared **********/
+PIN   10 = sd0 ; /* shared data bus */
+PIN   11 = sd1 ; /* shared data bus */
+PIN    5 = sd2 ; /* shared data bus */
+PIN   44 = sd3 ; /* shared data bus */
+PIN   43 = sd4 ; /* shared data bus */
+PIN    3 = sd5 ; /* shared data bus */
+PIN    2 = sd6 ; /* shared data bus */
+PIN    8 = sd7 ; /* shared data bus */
+
+/* *************** PINNODES    *********************/
+/* NEVER enable .oe in "node" FFs */
+PINNODE   613  = ffa   ; /* internal timing FF       */ 
+PINNODE   629  = ffb   ; /* internal timing FF       */ 
+
+
+/* flip-flops */
+ffa.ck = !n_ck1 ;
+ffa.d = n_mrq ;
+ffa.ap = n_mrq ;	/* preset is active high on cpld logic */
+
+ffb.ck = !ck6 ;
+ffb.ap = n_mrq ;	/* preset is active high on cpld */
+ffb.d = ffa ;
+ffb.ar = n_ck1 ;	/* reset is active high on clpd logic */
+
+le2cpu = !( !(!ffa & !ffb) # n_ck1) ;
+
+/* shared bus r/w */
+br_w = !(le2cpu & n_rd) ;
+
+dbr_w = !(!(dck1 & n_rd) & le2cpu) ;
+
+/* z80 local data bus */
+ld0.l = sd0.io ;
+ld1.l = sd1.io ;
+ld2.l = sd2.io ;
+ld3.l = sd3.io ;
+ld4.l = sd4.io ;
+ld5.l = sd5.io ;
+ld6.l = sd6.io ;
+ld7.l = sd7.io ;
+
+ld0.le = le2cpu ;
+ld1.le = le2cpu ;
+ld2.le = le2cpu ;
+ld3.le = le2cpu ;
+ld4.le = le2cpu ;
+ld5.le = le2cpu ;
+ld6.le = le2cpu ;
+ld7.le = le2cpu ;
+
+/* local bus enable is true when both n_mrq and n_rd are low (asserted) */
+/* it means the Z80 is reading from the shared bus latch */
+ld0.oe = !(n_mrq # n_rd) ;	
+ld1.oe = !(n_mrq # n_rd) ;
+ld2.oe = !(n_mrq # n_rd) ;
+ld3.oe = !(n_mrq # n_rd) ;
+ld4.oe = !(n_mrq # n_rd) ;
+ld5.oe = !(n_mrq # n_rd) ;
+ld6.oe = !(n_mrq # n_rd) ;
+ld7.oe = !(n_mrq # n_rd) ;
+
+
+/* shared data bus */
+sd0.l = ld0.io ;
+sd1.l = ld1.io ;
+sd2.l = ld2.io ;
+sd3.l = ld3.io ;
+sd4.l = ld4.io ;
+sd5.l = ld5.io ;
+sd6.l = ld6.io ;
+sd7.l = ld7.io ;
+
+sd0.le = 'b'1 ;
+sd1.le = 'b'1 ;
+sd2.le = 'b'1 ;
+sd3.le = 'b'1 ;
+sd4.le = 'b'1 ;
+sd5.le = 'b'1 ;
+sd6.le = 'b'1 ;
+sd7.le = 'b'1 ;
+
+/* shared bus is driven on low r/w */
+/* the Z80 is writing to the shared bus */
+sd0.oe = !br_w ;
+sd1.oe = !br_w ;
+sd2.oe = !br_w ;
+sd3.oe = !br_w ;
+sd4.oe = !br_w ;
+sd5.oe = !br_w ;
+sd6.oe = !br_w ;
+sd7.oe = !br_w ;
+

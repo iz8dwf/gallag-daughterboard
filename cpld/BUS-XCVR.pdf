@@ -1,0 +1,225 @@
+{COMPONENT Z:\HOME\FRANK\PROGETTI\GALLAG-DB-ATF\CPLD\BUS-XCVR.SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Fri Jun 10 22:12:58 2022 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P CK6 {Pt "INPUT"}{Lq 0}{Ploc 100 440}}
+   {P SD6 {Pt "INPUT"}{Lq 0}{Ploc 100 400}}
+   {P SD5 {Pt "INPUT"}{Lq 0}{Ploc 100 380}}
+   {P SD2 {Pt "INPUT"}{Lq 0}{Ploc 100 360}}
+   {P SD7 {Pt "INPUT"}{Lq 0}{Ploc 100 340}}
+   {P SD0 {Pt "INPUT"}{Lq 0}{Ploc 100 320}}
+   {P SD1 {Pt "INPUT"}{Lq 0}{Ploc 100 300}}
+   {P N_RD {Pt "INPUT"}{Lq 0}{Ploc 100 280}}
+   {P LD1 {Pt "INPUT"}{Lq 0}{Ploc 100 260}}
+   {P LD0 {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
+   {P LD7 {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P LD2 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P LD6 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P LD5 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P LD3 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P N_CK1 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P N_MRQ {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P DCK1 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P LD4 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P SD4 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P SD3 {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P DBR_W {Pt "I/O"}{Lq 0}{Ploc 300 20}}
+   {P BR_W {Pt "I/O"}{Lq 0}{Ploc 300 40}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 200 470}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 450}
+   [Ts 15][Tj "RC"]
+   {Pnl 120 410}
+   {Pnl 120 390}
+   {Pnl 120 370}
+   {Pnl 120 350}
+   {Pnl 120 330}
+   {Pnl 120 310}
+   {Pnl 120 290}
+   {Pnl 120 270}
+   {Pnl 120 250}
+   {Pnl 120 230}
+   {Pnl 120 210}
+   {Pnl 120 190}
+   {Pnl 120 170}
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+   {Pnl 280 30}
+   {Pnl 280 50}
+
+   {Sd A 37 2 3 5 8 10 11 15 22 23 25 28 31 33 34 35 39 40 42 43 44 13 14}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 460 270 0}
+   {L 130 440 100 440}
+   {L 130 450 140 440 130 430}
+   {L 130 400 100 400}
+   {L 130 380 100 380}
+   {L 130 360 100 360}
+   {L 130 340 100 340}
+   {L 130 320 100 320}
+   {L 130 300 100 300}
+   {L 130 280 100 280}
+   {L 130 260 100 260}
+   {L 130 240 100 240}
+   {L 130 220 100 220}
+   {L 130 200 100 200}
+   {L 130 180 100 180}
+   {L 130 160 100 160}
+   {L 130 140 100 140}
+   {L 130 120 100 120}
+   {L 130 100 100 100}
+   {L 130 80 100 80}
+   {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
+   {L 270 20 300 20}
+   {L 270 40 300 40}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "CK6" 140 440}
+   {T "SD6" 140 400}
+   {T "SD5" 140 380}
+   {T "SD2" 140 360}
+   {T "SD7" 140 340}
+   {T "SD0" 140 320}
+   {T "SD1" 140 300}
+   {T "N_RD" 140 280}
+   {T "LD1" 140 260}
+   {T "LD0" 140 240}
+   {T "LD7" 140 220}
+   {T "LD2" 140 200}
+   {T "LD6" 140 180}
+   {T "LD5" 140 160}
+   {T "LD3" 140 140}
+   {T "N_CK1" 140 120}
+   {T "N_MRQ" 140 100}
+   {T "DCK1" 140 80}
+   {T "LD4" 140 60}
+   {T "SD4" 140 40}
+   {T "SD3" 140 20}
+   [Tj "RC"]
+   {T "DBR_W" 260 20}
+   {T "BR_W" 260 40}
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "F1502ISPTQFP44" 200 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD Z:\HOME\FRANK\PROGETTI\GALLAG-DB-ATF\CPLD\BUS-XCVR 200 460}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N CK6
+   }
+   {N SD6
+   }
+   {N SD5
+   }
+   {N SD2
+   }
+   {N SD7
+   }
+   {N SD0
+   }
+   {N SD1
+   }
+   {N N_RD
+   }
+   {N LD1
+   }
+   {N LD0
+   }
+   {N LD7
+   }
+   {N LD2
+   }
+   {N LD6
+   }
+   {N LD5
+   }
+   {N LD3
+   }
+   {N N_CK1
+   }
+   {N N_MRQ
+   }
+   {N DCK1
+   }
+   {N LD4
+   }
+   {N SD4
+   }
+   {N SD3
+   }
+   {N DBR_W
+   }
+   {N BR_W
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}
